@@ -11,11 +11,12 @@ router.get('/', (req, resp) => {
 })
 
 router.post('/', async(req,resp) => {
-	const { title, price, image} = req.body
+	const { title, price, image } = req.body
 	const course = new Course({
 		title,
 		price,
-		image
+		image,
+		userId: req.user._id
 	})
 
 	try {
